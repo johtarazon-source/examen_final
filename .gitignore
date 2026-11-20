@@ -1,0 +1,18 @@
+# Dependencias y archivos de configuración (no se entregan en el repositorio)
+vendor/
+composer.lock
+.env
+
+# Datos de ejecución y herramientas
+storage/
+.playwright-mcp/
+
+# El frontend es un repositorio independiente (frontend-restaurante)
+frontend-restaurante/
+
+# Sistema operativo y editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
