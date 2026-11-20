@@ -1,5 +1,6 @@
 <?php
 
+use App\Controllers\AuthController;
 use App\Controllers\SaludController;
 use Slim\App;
 
@@ -8,4 +9,8 @@ use Slim\App;
  */
 return function (App $app): void {
     $app->get('/salud', SaludController::class);
+
+    $app->post('/auth/login', AuthController::class . ':login');
+    $app->post('/auth/logout', AuthController::class . ':logout');
+    $app->get('/auth/validar', AuthController::class . ':validar');
 };
