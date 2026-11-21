@@ -1,20 +1,19 @@
 <?php
 
+use App\Controllers\MesaController;
 use App\Controllers\SaludController;
-use App\Controllers\SesionController;
-use App\Middleware\Auth;
 use Slim\App;
-use Slim\Routing\RouteCollectorProxy;
 
 /**
  * Rutas del microservicio. Se amplían día a día (ver docs/PLAN_16_DIAS.md).
  */
 return function (App $app): void {
-    // Pública: comprobación de que el servicio está arriba.
     $app->get('/salud', SaludController::class);
 
-    // Protegidas: requieren token Bearer válido de ms-auth. Las rutas de los próximos días van aquí dentro.
-    $app->group('', function (RouteCollectorProxy $protegidas): void {
-        $protegidas->get('/sesion', SesionController::class);
-    })->add(new Auth());
+    // Mesas (día 4)
+    $app->get('/mesas', MesaController::class . ':listar');
+    $app->post('/mesas', MesaController::class . ':crear');
+    $app->get('/mesas/{id:[0-9]+}', MesaController::class . ':obtener');
+    $app->put('/mesas/{id:[0-9]+}', MesaController::class . ':editar');
+    $app->patch('/mesas/{id:[0-9]+}/estado', MesaController::class . ':cambiar_estado');
 };

@@ -7,8 +7,8 @@ composer.lock
 storage/
 .playwright-mcp/
 
-# El frontend es un repositorio independiente (frontend-restaurante)
-frontend-restaurante/
+# Documentación solo local (los .md no se suben al repositorio)
+*.md
 
 # Sistema operativo y editor
 .DS_Store

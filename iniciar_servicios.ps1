@@ -1,9 +1,9 @@
 <#
 .SYNOPSIS
-    Prepara las bases de datos y levanta los 4 microservicios de El Cuervo con el servidor embebido de PHP.
+    Prepara las bases de datos y levanta los 3 microservicios de El Cuervo con el servidor embebido de PHP.
 
 .DESCRIPTION
-    ms-auth :8101 | ms-reservas :8102 | ms-productos :8103 | ms-pedidos :8104
+    ms-reservas :8102 | ms-productos :8103 | ms-pedidos :8104
     Primero ejecuta scripts/preparar_bd.php de cada servicio (crea la BD y aplica el SQL del ejercicio si faltan
     las tablas) y luego abre una ventana por servicio (ciérrela para detenerlo). Requiere "composer install" y un
     .env (copiado de .env.example) en cada carpeta ms-*. Si un puerto ya está en uso, no lanza ese servicio.
@@ -17,7 +17,6 @@ param(
 )
 
 $servicios = [ordered]@{
-    'ms-auth'      = 8101
     'ms-reservas'  = 8102
     'ms-productos' = 8103
     'ms-pedidos'   = 8104

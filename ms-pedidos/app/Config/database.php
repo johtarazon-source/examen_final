@@ -37,7 +37,7 @@ function configurar_base_de_datos(): void
 
 /**
  * Registra una conexión SECUNDARIA de solo lectura hacia la base de otro microservicio
- * (p. ej. `auth` → ms_auth, para validar el token). No crea la base ni escribe en ella.
+ * (p. ej. `reservas` → elcuervo_reservas, para comprobar la mesa). No crea la base ni escribe en ella.
  */
 function agregar_conexion_lectura(string $nombre, string $variable_env, string $base_por_defecto): void
 {

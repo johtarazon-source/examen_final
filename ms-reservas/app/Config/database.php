@@ -35,15 +35,6 @@ function configurar_base_de_datos(): void
     $configurada = true;
 }
 
-/**
- * Registra una conexión SECUNDARIA de solo lectura hacia la base de otro microservicio
- * (p. ej. `auth` → ms_auth, para validar el token). No crea la base ni escribe en ella.
- */
-function agregar_conexion_lectura(string $nombre, string $variable_env, string $base_por_defecto): void
-{
-    capsule()->addConnection(parametros_conexion((string) Env::obtener($variable_env, $base_por_defecto)), $nombre);
-}
-
 /** Gestor único de Eloquent para el proceso (se crea la primera vez que se necesita). */
 function capsule(): Capsule
 {
